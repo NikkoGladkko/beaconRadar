@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441074361B7C97050064E273 /* libWGXBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 441074341B7C97050064E273 /* libWGXBeacon.a */; };
 		628BF6D91B7BC27300FCFD4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6D81B7BC27300FCFD4E /* main.m */; };
 		628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */; };
 		628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DD1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld */; };
@@ -30,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		441074321B7C8FD60064E273 /* beaconRadar.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beaconRadar.pch; sourceTree = "<group>"; };
+		441074341B7C97050064E273 /* libWGXBeacon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWGXBeacon.a; sourceTree = "<group>"; };
+		441074351B7C97050064E273 /* WGXBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGXBeacon.h; sourceTree = "<group>"; };
 		628BF6D31B7BC27300FCFD4E /* beaconRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beaconRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628BF6D71B7BC27300FCFD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628BF6D81B7BC27300FCFD4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441074361B7C97050064E273 /* libWGXBeacon.a in Frameworks */,
 				628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441074331B7C97050064E273 /* WGX-IOS */ = {
+			isa = PBXGroup;
+			children = (
+				441074341B7C97050064E273 /* libWGXBeacon.a */,
+				441074351B7C97050064E273 /* WGXBeacon.h */,
+			);
+			path = "WGX-IOS";
+			sourceTree = "<group>";
+		};
 		628BF6CA1B7BC27300FCFD4E = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +89,7 @@
 				628BF6D51B7BC27300FCFD4E /* beaconRadar */,
 				628BF6F21B7BC27300FCFD4E /* beaconRadarTests */,
 				628BF6D41B7BC27300FCFD4E /* Products */,
+				441074331B7C97050064E273 /* WGX-IOS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				628BF6D71B7BC27300FCFD4E /* Info.plist */,
+				441074321B7C8FD60064E273 /* beaconRadar.pch */,
 				628BF6D81B7BC27300FCFD4E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -368,8 +384,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = beaconRadar/beaconRadar.pch;
 				INFOPLIST_FILE = beaconRadar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WGX-IOS",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -378,8 +400,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = beaconRadar/beaconRadar.pch;
 				INFOPLIST_FILE = beaconRadar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WGX-IOS",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -437,6 +465,7 @@
 				628BF6FB1B7BC27300FCFD4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		628BF6FC1B7BC27300FCFD4E /* Build configuration list for PBXNativeTarget "beaconRadarTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +474,7 @@
 				628BF6FE1B7BC27300FCFD4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -18,8 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    if (IOS8) {
+        [self.locationManager requestAlwaysAuthorization];
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [application registerUserNotificationSettings:mySettings];
+    }
     return YES;
 }
 
