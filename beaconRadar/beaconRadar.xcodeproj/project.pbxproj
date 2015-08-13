@@ -15,6 +15,8 @@
 		628BF6E71B7BC27300FCFD4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628BF6E61B7BC27300FCFD4E /* Images.xcassets */; };
 		628BF6EA1B7BC27300FCFD4E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 628BF6E81B7BC27300FCFD4E /* LaunchScreen.xib */; };
 		628BF6F61B7BC27300FCFD4E /* beaconRadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6F51B7BC27300FCFD4E /* beaconRadarTests.m */; };
+		628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */; };
+		628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,9 @@
 		628BF6EF1B7BC27300FCFD4E /* beaconRadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = beaconRadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		628BF6F41B7BC27300FCFD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628BF6F51B7BC27300FCFD4E /* beaconRadarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = beaconRadarTests.m; sourceTree = "<group>"; };
+		628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AplicationDefaults.h; sourceTree = "<group>"; };
+		628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AplicationDefaults.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +71,7 @@
 		628BF6CA1B7BC27300FCFD4E = {
 			isa = PBXGroup;
 			children = (
+				628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */,
 				628BF6D51B7BC27300FCFD4E /* beaconRadar */,
 				628BF6F21B7BC27300FCFD4E /* beaconRadarTests */,
 				628BF6D41B7BC27300FCFD4E /* Products */,
@@ -87,6 +94,8 @@
 				628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */,
 				628BF6E01B7BC27300FCFD4E /* ViewController.h */,
 				628BF6E11B7BC27300FCFD4E /* ViewController.m */,
+				628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */,
+				628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */,
 				628BF6E31B7BC27300FCFD4E /* Main.storyboard */,
 				628BF6E61B7BC27300FCFD4E /* Images.xcassets */,
 				628BF6E81B7BC27300FCFD4E /* LaunchScreen.xib */,
@@ -171,6 +180,11 @@
 				TargetAttributes = {
 					628BF6D21B7BC27300FCFD4E = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					628BF6EE1B7BC27300FCFD4E = {
 						CreatedOnToolsVersion = 6.4;
@@ -226,6 +240,7 @@
 				628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */,
 				628BF6E21B7BC27300FCFD4E /* ViewController.m in Sources */,
 				628BF6D91B7BC27300FCFD4E /* main.m in Sources */,
+				628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

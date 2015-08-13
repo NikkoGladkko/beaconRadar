@@ -7,16 +7,18 @@
 //
 
 #import "ViewController.h"
+@import CoreLocation;
 
-@interface ViewController ()
-
+@interface ViewController () <CLLocationManagerDelegate>
+@property (nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

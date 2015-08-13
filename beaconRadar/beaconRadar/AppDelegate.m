@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+@import CoreLocation;
 
-@interface AppDelegate ()
+@interface AppDelegate () <UIApplicationDelegate, CLLocationManagerDelegate>
+@property CLLocationManager *locationManager;
 
 @end
 
@@ -16,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     return YES;
 }
 
@@ -42,6 +45,43 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    // If the application is in the foreground, we will notify the user of the region's state via an alert.
+    NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    [alert show];
+}
+
+#pragma mark - Location Manager
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    /*
+     A user can transition in or out of a region while the application is not running. When this happens CoreLocation will launch the application momentarily, call this delegate method and we will let the user know via a local notification.
+     */
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    if(state == CLRegionStateInside)
+    {
+        notification.alertBody = NSLocalizedString(@"You're inside the region", @"");
+    }
+    else if(state == CLRegionStateOutside)
+    {
+        notification.alertBody = NSLocalizedString(@"You're outside the region", @"");
+    }
+    else
+    {
+        return;
+    }
+    
+    /*
+     If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
+     If it's not, iOS will display the notification to the user.
+     */
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark - Core Data stack
