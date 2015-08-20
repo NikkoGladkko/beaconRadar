@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Assets.h"
+#import "Offers.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,7 +21,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (Offers *)offerForAssetUuid:(NSString *)assetUuid;
 
 @end
 

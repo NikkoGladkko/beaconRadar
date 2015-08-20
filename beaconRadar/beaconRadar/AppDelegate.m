@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreAPI.h"
+
 @import CoreLocation;
 
 @interface AppDelegate () <UIApplicationDelegate, CLLocationManagerDelegate>
@@ -18,7 +20,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    CoreAPI *api = [CoreAPI new];
+    [api getListOfOffers];
+    [api getListOfAssets];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     if (IOS8) {
@@ -58,37 +62,30 @@
 {
     // If the application is in the foreground, we will notify the user of the region's state via an alert.
     NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertTitle message:notification.alertBody delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     [alert show];
 }
 
 #pragma mark - Location Manager
 
-- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLBeaconRegion *)region
 {
     /*
      A user can transition in or out of a region while the application is not running. When this happens CoreLocation will launch the application momentarily, call this delegate method and we will let the user know via a local notification.
      */
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    
-    if(state == CLRegionStateInside)
-    {
-        notification.alertBody = NSLocalizedString(@"You're inside the region", @"");
+    if ([region isKindOfClass:CLBeaconRegion.class]) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
+        if(state == CLRegionStateInside){
+            Offers *offer = [self offerForAssetUuid:region.proximityUUID.UUIDString];
+            notification.alertTitle= offer.offerHeader;
+            notification.alertBody = offer.offerBoby;
+        }else{
+            return;
+        }
+
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
-    else if(state == CLRegionStateOutside)
-    {
-        notification.alertBody = NSLocalizedString(@"You're outside the region", @"");
-    }
-    else
-    {
-        return;
-    }
-    
-    /*
-     If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
-     If it's not, iOS will display the notification to the user.
-     */
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark - Core Data stack
@@ -154,6 +151,29 @@
     _managedObjectContext = [[NSManagedObjectContext alloc] init];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
+}
+
+
+- (Offers *)offerForAssetUuid:(NSString *)assetUuid{
+    Assets *asset;
+    Offers *offer;
+    NSError *error;
+    AppDelegate *delegate = self;
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Assets" inManagedObjectContext:delegate.managedObjectContext];
+    fetchRequest.entity = entity;
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"assetUuid==%@",assetUuid];
+    NSArray *fetchedObjects = [delegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects.count > 0) {
+        asset = [fetchedObjects objectAtSafetyIndex:0];
+        NSFetchRequest *offerFetchRequest = [NSFetchRequest new];
+        NSEntityDescription *offerEntity = [NSEntityDescription entityForName:@"Offers" inManagedObjectContext:delegate.managedObjectContext];
+        offerFetchRequest.entity = offerEntity;
+        offerFetchRequest.predicate = [NSPredicate predicateWithFormat:@"offerId==%@",asset.offerId];
+        NSArray *offerFetchedObjects = [delegate.managedObjectContext executeFetchRequest:offerFetchRequest error:&error];
+        offer = [offerFetchedObjects objectAtSafetyIndex:0];
+    }
+    return offer;
 }
 
 #pragma mark - Core Data Saving support

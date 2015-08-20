@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		441074361B7C97050064E273 /* libWGXBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 441074341B7C97050064E273 /* libWGXBeacon.a */; };
+		446DAD6F1B85A3B400AA214B /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD6C1B85A3B400AA214B /* NSDictionary+Safety.m */; };
+		446DAD701B85A3B400AA214B /* NSArray+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD6E1B85A3B400AA214B /* NSArray+Safety.m */; };
+		446DAD741B85A78100AA214B /* CoreApiConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD731B85A78100AA214B /* CoreApiConnection.m */; };
+		446DAD7D1B85DF9C00AA214B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446DAD7C1B85DF9C00AA214B /* CoreData.framework */; };
+		446DAD861B85F28D00AA214B /* Offers.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD851B85F28D00AA214B /* Offers.m */; };
+		446DAD891B85F28E00AA214B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD881B85F28E00AA214B /* Assets.m */; };
 		628BF6D91B7BC27300FCFD4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6D81B7BC27300FCFD4E /* main.m */; };
 		628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */; };
 		628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DD1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld */; };
@@ -18,7 +24,7 @@
 		628BF6F61B7BC27300FCFD4E /* beaconRadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6F51B7BC27300FCFD4E /* beaconRadarTests.m */; };
 		628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */; };
 		628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */; };
-		62A5EB4C1B83A99B00F1A812 /* TmhAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */; };
+		62A5EB4C1B83A99B00F1A812 /* CoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A5EB4B1B83A99B00F1A812 /* CoreAPI.m */; };
 		62A5EB511B83B87C00F1A812 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5EB501B83B87C00F1A812 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +42,17 @@
 		441074321B7C8FD60064E273 /* beaconRadar.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beaconRadar.pch; sourceTree = "<group>"; };
 		441074341B7C97050064E273 /* libWGXBeacon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWGXBeacon.a; sourceTree = "<group>"; };
 		441074351B7C97050064E273 /* WGXBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGXBeacon.h; sourceTree = "<group>"; };
+		446DAD6B1B85A3B400AA214B /* NSDictionary+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safety.h"; sourceTree = "<group>"; };
+		446DAD6C1B85A3B400AA214B /* NSDictionary+Safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safety.m"; sourceTree = "<group>"; };
+		446DAD6D1B85A3B400AA214B /* NSArray+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safety.h"; sourceTree = "<group>"; };
+		446DAD6E1B85A3B400AA214B /* NSArray+Safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safety.m"; sourceTree = "<group>"; };
+		446DAD721B85A78100AA214B /* CoreApiConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreApiConnection.h; path = CoreApi/CoreApiConnection.h; sourceTree = "<group>"; };
+		446DAD731B85A78100AA214B /* CoreApiConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreApiConnection.m; path = CoreApi/CoreApiConnection.m; sourceTree = "<group>"; };
+		446DAD7C1B85DF9C00AA214B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		446DAD841B85F28D00AA214B /* Offers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Offers.h; path = CoreApi/Offers.h; sourceTree = "<group>"; };
+		446DAD851B85F28D00AA214B /* Offers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Offers.m; path = CoreApi/Offers.m; sourceTree = "<group>"; };
+		446DAD871B85F28E00AA214B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Assets.h; path = CoreApi/Assets.h; sourceTree = "<group>"; };
+		446DAD881B85F28E00AA214B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Assets.m; path = CoreApi/Assets.m; sourceTree = "<group>"; };
 		628BF6D31B7BC27300FCFD4E /* beaconRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beaconRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628BF6D71B7BC27300FCFD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628BF6D81B7BC27300FCFD4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,8 +70,8 @@
 		628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AplicationDefaults.h; sourceTree = "<group>"; };
 		628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AplicationDefaults.m; sourceTree = "<group>"; };
-		62A5EB4A1B83A99B00F1A812 /* TmhAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TmhAPI.h; sourceTree = "<group>"; };
-		62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TmhAPI.m; sourceTree = "<group>"; };
+		62A5EB4A1B83A99B00F1A812 /* CoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAPI.h; sourceTree = "<group>"; };
+		62A5EB4B1B83A99B00F1A812 /* CoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAPI.m; sourceTree = "<group>"; };
 		62A5EB501B83B87C00F1A812 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446DAD7D1B85DF9C00AA214B /* CoreData.framework in Frameworks */,
 				62A5EB511B83B87C00F1A812 /* UIKit.framework in Frameworks */,
 				441074361B7C97050064E273 /* libWGXBeacon.a in Frameworks */,
 				628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */,
@@ -88,9 +106,32 @@
 			path = "WGX-IOS";
 			sourceTree = "<group>";
 		};
+		446DAD711B85A3C500AA214B /* Safety Category */ = {
+			isa = PBXGroup;
+			children = (
+				446DAD6B1B85A3B400AA214B /* NSDictionary+Safety.h */,
+				446DAD6C1B85A3B400AA214B /* NSDictionary+Safety.m */,
+				446DAD6D1B85A3B400AA214B /* NSArray+Safety.h */,
+				446DAD6E1B85A3B400AA214B /* NSArray+Safety.m */,
+			);
+			name = "Safety Category";
+			sourceTree = "<group>";
+		};
+		446DAD7B1B85CDC900AA214B /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				446DAD871B85F28E00AA214B /* Assets.h */,
+				446DAD881B85F28E00AA214B /* Assets.m */,
+				446DAD841B85F28D00AA214B /* Offers.h */,
+				446DAD851B85F28D00AA214B /* Offers.m */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
 		628BF6CA1B7BC27300FCFD4E = {
 			isa = PBXGroup;
 			children = (
+				446DAD7C1B85DF9C00AA214B /* CoreData.framework */,
 				62A5EB501B83B87C00F1A812 /* UIKit.framework */,
 				628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */,
 				628BF6D51B7BC27300FCFD4E /* beaconRadar */,
@@ -112,6 +153,7 @@
 		628BF6D51B7BC27300FCFD4E /* beaconRadar */ = {
 			isa = PBXGroup;
 			children = (
+				446DAD7B1B85CDC900AA214B /* DataBase */,
 				628BF6DA1B7BC27300FCFD4E /* AppDelegate.h */,
 				628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */,
 				62A5EB491B83A98E00F1A812 /* API */,
@@ -120,6 +162,7 @@
 				628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */,
 				628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */,
 				628BF6E31B7BC27300FCFD4E /* Main.storyboard */,
+				446DAD711B85A3C500AA214B /* Safety Category */,
 				628BF6E61B7BC27300FCFD4E /* Images.xcassets */,
 				628BF6E81B7BC27300FCFD4E /* LaunchScreen.xib */,
 				628BF6DD1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld */,
@@ -158,8 +201,10 @@
 		62A5EB491B83A98E00F1A812 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				62A5EB4A1B83A99B00F1A812 /* TmhAPI.h */,
-				62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */,
+				62A5EB4A1B83A99B00F1A812 /* CoreAPI.h */,
+				62A5EB4B1B83A99B00F1A812 /* CoreAPI.m */,
+				446DAD721B85A78100AA214B /* CoreApiConnection.h */,
+				446DAD731B85A78100AA214B /* CoreApiConnection.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -269,12 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62A5EB4C1B83A99B00F1A812 /* TmhAPI.m in Sources */,
+				446DAD861B85F28D00AA214B /* Offers.m in Sources */,
+				62A5EB4C1B83A99B00F1A812 /* CoreAPI.m in Sources */,
 				628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */,
+				446DAD701B85A3B400AA214B /* NSArray+Safety.m in Sources */,
 				628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */,
+				446DAD741B85A78100AA214B /* CoreApiConnection.m in Sources */,
 				628BF6E21B7BC27300FCFD4E /* ViewController.m in Sources */,
 				628BF6D91B7BC27300FCFD4E /* main.m in Sources */,
+				446DAD6F1B85A3B400AA214B /* NSDictionary+Safety.m in Sources */,
 				628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */,
+				446DAD891B85F28E00AA214B /* Assets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
