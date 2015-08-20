@@ -18,6 +18,8 @@
 		628BF6F61B7BC27300FCFD4E /* beaconRadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6F51B7BC27300FCFD4E /* beaconRadarTests.m */; };
 		628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */; };
 		628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */; };
+		62A5EB4C1B83A99B00F1A812 /* TmhAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */; };
+		62A5EB511B83B87C00F1A812 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5EB501B83B87C00F1A812 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AplicationDefaults.h; sourceTree = "<group>"; };
 		628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AplicationDefaults.m; sourceTree = "<group>"; };
+		62A5EB4A1B83A99B00F1A812 /* TmhAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TmhAPI.h; sourceTree = "<group>"; };
+		62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TmhAPI.m; sourceTree = "<group>"; };
+		62A5EB501B83B87C00F1A812 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A5EB511B83B87C00F1A812 /* UIKit.framework in Frameworks */,
 				441074361B7C97050064E273 /* libWGXBeacon.a in Frameworks */,
 				628BF7001B7BC77300FCFD4E /* CoreLocation.framework in Frameworks */,
 			);
@@ -85,6 +91,7 @@
 		628BF6CA1B7BC27300FCFD4E = {
 			isa = PBXGroup;
 			children = (
+				62A5EB501B83B87C00F1A812 /* UIKit.framework */,
 				628BF6FF1B7BC77300FCFD4E /* CoreLocation.framework */,
 				628BF6D51B7BC27300FCFD4E /* beaconRadar */,
 				628BF6F21B7BC27300FCFD4E /* beaconRadarTests */,
@@ -107,6 +114,7 @@
 			children = (
 				628BF6DA1B7BC27300FCFD4E /* AppDelegate.h */,
 				628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */,
+				62A5EB491B83A98E00F1A812 /* API */,
 				628BF6E01B7BC27300FCFD4E /* ViewController.h */,
 				628BF6E11B7BC27300FCFD4E /* ViewController.m */,
 				628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */,
@@ -145,6 +153,15 @@
 				628BF6F41B7BC27300FCFD4E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62A5EB491B83A98E00F1A812 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				62A5EB4A1B83A99B00F1A812 /* TmhAPI.h */,
+				62A5EB4B1B83A99B00F1A812 /* TmhAPI.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A5EB4C1B83A99B00F1A812 /* TmhAPI.m in Sources */,
 				628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */,
 				628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */,
 				628BF6E21B7BC27300FCFD4E /* ViewController.m in Sources */,

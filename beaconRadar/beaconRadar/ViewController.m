@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AplicationDefaults.h"
+#import "TmhAPI.h"
 
 @import CoreLocation;
 
@@ -66,6 +67,9 @@
         self.notifyOnEntry = self.notifyOnExit = YES;
         self.notifyOnDisplay = NO;
     }
+    
+    TmhAPI *api = [TmhAPI new];
+    [api getListOfBeacons];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
