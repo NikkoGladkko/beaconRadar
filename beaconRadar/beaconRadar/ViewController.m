@@ -42,32 +42,32 @@
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[AplicationDefaults sharedDefaults].defaultProximityUUID identifier:BeaconIdentifier]; //[NSUUID UUID]
-    region = [self.locationManager.monitoredRegions member:region];
-    if(region)
-    {
-        self.view.backgroundColor = [UIColor whiteColor];
-        self.enabled = YES;
-        self.uuid = region.proximityUUID;
-        self.major = region.major;
-        self.majorTextField.text = [self.major stringValue];
-        self.minor = region.minor;
-        self.minorTextField.text = [self.minor stringValue];
-        self.notifyOnEntry = region.notifyOnEntry;
-        self.notifyOnExit = region.notifyOnExit;
-        self.notifyOnDisplay = region.notifyEntryStateOnDisplay;
-    }
-    else
-    {
-        self.view.backgroundColor = [UIColor grayColor];
-        // Default settings.
-        self.enabled = NO;
-        
-        self.uuid = [AplicationDefaults sharedDefaults].defaultProximityUUID;
-        self.major = self.minor = nil;
-        self.notifyOnEntry = self.notifyOnExit = YES;
-        self.notifyOnDisplay = NO;
-    }
+//    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[AplicationDefaults sharedDefaults].defaultProximityUUID identifier:BeaconIdentifier]; //[NSUUID UUID]
+//    region = [self.locationManager.monitoredRegions member:region];
+//    if(region)
+//    {
+//        self.view.backgroundColor = [UIColor whiteColor];
+//        self.enabled = YES;
+//        self.uuid = region.proximityUUID;
+//        self.major = region.major;
+//        self.majorTextField.text = [self.major stringValue];
+//        self.minor = region.minor;
+//        self.minorTextField.text = [self.minor stringValue];
+//        self.notifyOnEntry = region.notifyOnEntry;
+//        self.notifyOnExit = region.notifyOnExit;
+//        self.notifyOnDisplay = region.notifyEntryStateOnDisplay;
+//    }
+//    else
+//    {
+//        self.view.backgroundColor = [UIColor grayColor];
+//        // Default settings.
+//        self.enabled = NO;
+//        
+//        self.uuid = [AplicationDefaults sharedDefaults].defaultProximityUUID;
+//        self.major = self.minor = nil;
+//        self.notifyOnEntry = self.notifyOnExit = YES;
+//        self.notifyOnDisplay = NO;
+//    }
     
 
 }
@@ -81,42 +81,18 @@
 {
     self.enabled = YES;
     // if region monitoring is enabled, update the region being monitored
-    CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[AplicationDefaults sharedDefaults].defaultProximityUUID  identifier:BeaconIdentifier];
-    
-    if(region != nil)
-    {
-        [self.locationManager stopMonitoringForRegion:region];
-    }
-    
-    if(self.enabled)
-    {
-        region = nil;
-        if(self.uuid && self.major && self.minor)
-        {
-            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major shortValue] minor:[self.minor shortValue] identifier:BeaconIdentifier];
-        }
-        else if(self.uuid && self.major)
-        {
-            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid major:[self.major shortValue]  identifier:BeaconIdentifier];
-        }
-        else if(self.uuid)
-        {
-            region = [[CLBeaconRegion alloc] initWithProximityUUID:self.uuid identifier:BeaconIdentifier];
-        }
-        
+    NSArray *UUIDArray = [AplicationDefaults sharedDefaults].supportedProximityUUIDs;
+    for (NSUUID *proxUUID in UUIDArray) {
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:proxUUID  identifier:BeaconIdentifier];
         if(region)
         {
-            region.notifyOnEntry = self.notifyOnEntry;
-            region.notifyOnExit = self.notifyOnExit;
-            region.notifyEntryStateOnDisplay = self.notifyOnDisplay;
-            
+            region.notifyOnEntry = YES;
+            region.notifyOnExit = YES;
+            region.notifyEntryStateOnDisplay = YES;
             [self.locationManager startMonitoringForRegion:region];
+        } else {
+            [self.locationManager stopMonitoringForRegion:region];
         }
-    }
-    else
-    {
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[NSUUID UUID] identifier:BeaconIdentifier];
-        [self.locationManager stopMonitoringForRegion:region];
     }
 }
 
@@ -132,20 +108,20 @@
      */
     if ([region isKindOfClass:CLBeaconRegion.class]) {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        
-        
         if(state == CLRegionStateInside){
             Offers *offer = [self offerForAssetUuid:region.proximityUUID.UUIDString];
             [self performSelectorOnMainThread:@selector(insideTheBeaconRegionWithOffer:) withObject:offer waitUntilDone:NO];
             notification.alertTitle = offer.offerHeader;
             notification.alertBody = offer.offerBoby;
-        } else if(state == CLRegionStateOutside){
-            [self performSelectorOnMainThread:@selector(outsideTheBeaconRegion) withObject:self waitUntilDone:NO];
-            notification.alertBody = NSLocalizedString(@"You're outside the region", @"");
-        } else {
-            return;
+            //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
-        //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//        } else if(state == CLRegionStateOutside){
+//            [self performSelectorOnMainThread:@selector(outsideTheBeaconRegion) withObject:self waitUntilDone:NO];
+//            notification.alertBody = NSLocalizedString(@"You're outside the region", @"");
+//        } else {
+//            return;
+//        }
+        
     }
 }
 

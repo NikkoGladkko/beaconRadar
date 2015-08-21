@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "CoreAPI.h"
 #import "Assets.h"
 #import "Offers.h"
 

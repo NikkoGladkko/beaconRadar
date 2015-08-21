@@ -14,6 +14,9 @@
 		446DAD7D1B85DF9C00AA214B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446DAD7C1B85DF9C00AA214B /* CoreData.framework */; };
 		446DAD861B85F28D00AA214B /* Offers.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD851B85F28D00AA214B /* Offers.m */; };
 		446DAD891B85F28E00AA214B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD881B85F28E00AA214B /* Assets.m */; };
+		446DAD8D1B86FAAA00AA214B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD8C1B86FAAA00AA214B /* DetailViewController.m */; };
+		446DAD901B86FAF900AA214B /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD8F1B86FAF900AA214B /* MasterTableViewController.m */; };
+		446DAD931B8706B300AA214B /* OfferWr.m in Sources */ = {isa = PBXBuildFile; fileRef = 446DAD921B8706B300AA214B /* OfferWr.m */; };
 		628BF6D91B7BC27300FCFD4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6D81B7BC27300FCFD4E /* main.m */; };
 		628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DB1B7BC27300FCFD4E /* AppDelegate.m */; };
 		628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628BF6DD1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld */; };
@@ -53,6 +56,12 @@
 		446DAD851B85F28D00AA214B /* Offers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Offers.m; path = CoreApi/Offers.m; sourceTree = "<group>"; };
 		446DAD871B85F28E00AA214B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Assets.h; path = CoreApi/Assets.h; sourceTree = "<group>"; };
 		446DAD881B85F28E00AA214B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Assets.m; path = CoreApi/Assets.m; sourceTree = "<group>"; };
+		446DAD8B1B86FAAA00AA214B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		446DAD8C1B86FAAA00AA214B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		446DAD8E1B86FAF900AA214B /* MasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTableViewController.h; sourceTree = "<group>"; };
+		446DAD8F1B86FAF900AA214B /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
+		446DAD911B8706B300AA214B /* OfferWr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferWr.h; sourceTree = "<group>"; };
+		446DAD921B8706B300AA214B /* OfferWr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferWr.m; sourceTree = "<group>"; };
 		628BF6D31B7BC27300FCFD4E /* beaconRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beaconRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628BF6D71B7BC27300FCFD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		628BF6D81B7BC27300FCFD4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +137,19 @@
 			name = DataBase;
 			sourceTree = "<group>";
 		};
+		446DAD8A1B86FA8C00AA214B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				446DAD8B1B86FAAA00AA214B /* DetailViewController.h */,
+				446DAD8C1B86FAAA00AA214B /* DetailViewController.m */,
+				446DAD8E1B86FAF900AA214B /* MasterTableViewController.h */,
+				446DAD8F1B86FAF900AA214B /* MasterTableViewController.m */,
+				446DAD911B8706B300AA214B /* OfferWr.h */,
+				446DAD921B8706B300AA214B /* OfferWr.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		628BF6CA1B7BC27300FCFD4E = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +182,7 @@
 				628BF6E01B7BC27300FCFD4E /* ViewController.h */,
 				628BF6E11B7BC27300FCFD4E /* ViewController.m */,
 				628BF7011B7BCBD800FCFD4E /* AplicationDefaults.h */,
+				446DAD8A1B86FA8C00AA214B /* UI */,
 				628BF7021B7BCBD800FCFD4E /* AplicationDefaults.m */,
 				628BF6E31B7BC27300FCFD4E /* Main.storyboard */,
 				446DAD711B85A3C500AA214B /* Safety Category */,
@@ -319,12 +342,15 @@
 				628BF6DF1B7BC27300FCFD4E /* beaconRadar.xcdatamodeld in Sources */,
 				446DAD701B85A3B400AA214B /* NSArray+Safety.m in Sources */,
 				628BF6DC1B7BC27300FCFD4E /* AppDelegate.m in Sources */,
+				446DAD931B8706B300AA214B /* OfferWr.m in Sources */,
 				446DAD741B85A78100AA214B /* CoreApiConnection.m in Sources */,
 				628BF6E21B7BC27300FCFD4E /* ViewController.m in Sources */,
 				628BF6D91B7BC27300FCFD4E /* main.m in Sources */,
 				446DAD6F1B85A3B400AA214B /* NSDictionary+Safety.m in Sources */,
+				446DAD901B86FAF900AA214B /* MasterTableViewController.m in Sources */,
 				628BF7031B7BCBD800FCFD4E /* AplicationDefaults.m in Sources */,
 				446DAD891B85F28E00AA214B /* Assets.m in Sources */,
+				446DAD8D1B86FAAA00AA214B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

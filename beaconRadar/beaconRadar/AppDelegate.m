@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CoreAPI.h"
+
 
 @import CoreLocation;
 
@@ -80,11 +80,12 @@
             Offers *offer = [self offerForAssetUuid:region.proximityUUID.UUIDString];
             notification.alertTitle= offer.offerHeader;
             notification.alertBody = offer.offerBoby;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }else{
             return;
         }
 
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
     }
 }
 
